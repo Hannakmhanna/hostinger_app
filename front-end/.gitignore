@@ -1,0 +1,51 @@
+# Node dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env*
+!.env.example  # Keep a sample env file for reference
+
+# Build and output directories
+.next/
+out/
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+debug.log*
+vercel/output.log
+.vercel
+
+# Static and cache files
+.cache/
+public/static/
+
+# Testing
+coverage/
+jest.config.js
+cypress/
+
+# Editor and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# TypeScript files
+*.tsbuildinfo
+
+# Docker files (if using Docker)
+docker-compose.override.yml
