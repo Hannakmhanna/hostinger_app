@@ -47,14 +47,14 @@ export default function SlideSection() {
     <section className="text-white py-16 px-6 text-center">
       <div className="wrapper w-[84%] mx-auto">
         <div className="flex flex-col items-center mt-10">
-          <div className="relative pl-[0] rounded-lg text-left flex items-center gap-6">
+          <div className="relative pl-[0] xl:flex-row xxl:flex-row lg:flex-row md:flex-row xs-md:flex-col-reverse sm:flex-col-reverse smx:flex-col-reverse xsm:flex-col-reverse xs:flex-col-reverse xxs:flex-col-reverse rounded-lg text-left flex items-center gap-6">
             {/* Image Section */}
             <div className="relative rounded-lg">
               <img
                 src={testimonials[currentIndex].image}
                 alt="Testimonial"
                 className={`rounded-lg ${
-                  currentIndex === 1 ? "w-[500px] h-auto" : "w-[990px] h-auto"
+                  currentIndex === 1 ? "w-[500px] h-auto" : "xl:w-[990px] xl:h-auto md:w-[1227px]"
                 } object-cover`}
               />
               <div
@@ -85,10 +85,10 @@ export default function SlideSection() {
               <img
                 src="/images/Screenshot (280).png"
                 alt="quote"
-                className="w-[8%] h-auto rounded-[6px]"
+                className="xl:w-[8%] sm:w-[10%] h-auto rounded-[6px]"
               />
               <blockquote
-                className={`text-[#2F1C6A] font-[480] leading-tight text-[38px] ${
+                className={`text-[#2F1C6A] font-[480] leading-tight xl:text-[38px] md:w-[108%] xl:w-[100%] md:text-[30px] xs-md:text-[28px] sm:text-[26px] smx:text-[24px] xsm:text-[24px] xs:text-[24px] xxs:text-[24px] ${
                   currentIndex === 2 ? "mb-6" : ""
                 }`}
                 dangerouslySetInnerHTML={{
@@ -110,11 +110,11 @@ export default function SlideSection() {
 
               <hr className="border-t border-grey mt-4 w-full" />
 
-              <p className="mt-5 text-[#2F1C6A] font-bold">
+              <p className="mt-5 text-[16px] text-[#2F1C6A] font-bold">
                 {testimonials[currentIndex].author}
               </p>
 
-              <p className="text-[#2F1C6A]">
+              <p className="text-[#2F1C6A] text-[16px]">
                 {testimonials[currentIndex].website}
               </p>
             </div>
@@ -122,12 +122,12 @@ export default function SlideSection() {
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className={`absolute transform -translate-y-1/2 bg-[#F4F5FF] p-2 rounded-full ${
+              className={`absolute transform -translate-y-1/2 bg-[#F4F5FF] xl:left-[68rem] xxl:left-[47rem] p-2 rounded-full ${
                 testimonials[currentIndex].image === "/images/slide2.png"
                   ? "top-[71%]"
                   : "top-[73%]"
               }`}
-              style={{ left: "68rem" }}
+             
             >
               <ChevronLeft size={24} className="text-[#673DE6]" />
             </button>

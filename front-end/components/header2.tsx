@@ -16,8 +16,8 @@ const Header2Page = () => {
       <div className="shimmer-effect absolute inset-0 z-10"></div>
       {/* Foreground Content */}
       <div className="relative z-10 pt-[13px]">
-        <span className="mr-4 font-bold text-sm">GIANT HOSTINGER SALE</span>
-        <button className="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-purple-500 transition font-bold text-sm">
+        <span className="mr-4 font-bold md:text-[18px] xs-md:text-[23px] xsm:text-[24px] smx:text-[21px] sm:text-[21px] xl:text-sm">GIANT HOSTINGER SALE</span>
+        <button className="border border-white  xl:px-4 xl:py-2 xsm:text-[20px] xsm:px-5 xsm:py-6 md:text-[18px] smx:text-[21px] smx:px-4 smx:py-5 md:px-4 sm:text-[21px] sm:px-4 sm:py-2 md:py-2 xs-md:px-4 xs-md:py-2 xs-md:text-[22px] rounded-lg hover:bg-white hover:text-purple-500 transition font-bold xl:text-sm">
           Grab deal
         </button>
       </div>

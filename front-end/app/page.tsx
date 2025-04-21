@@ -30,7 +30,6 @@ export default function Home() {
   return (
     <div>
       <HeaderPage />
-      <Header2Page />
       <Spotlight />
       <Reviews />
       <PricingTable />

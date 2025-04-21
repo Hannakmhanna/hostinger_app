@@ -10,7 +10,25 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+      screens: {
+        'xxs': '320px',
+        'xs': '360px',
+        'xsm': '440px',
+        'smx': '580px',
+        'md': '768px',
+        'xs-md': '740px',
+        'sm':'640px',
+        'lg': '980px',
+        'xxl': '1100px',
+        'above980': '981px', // ✅ this is fine
+      },
+      fontSize: {
+        "nav-sm": "16px",
+        "nav-md": "24px",
+        "nav-lg": "20px",
+        "nav-xl": "22px", // used here
+      },
+       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {

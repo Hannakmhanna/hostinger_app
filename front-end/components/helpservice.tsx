@@ -4,9 +4,9 @@ const HelpService = () => {
   return (
     <section className="py-16 bg-white">
        <div className="wrapper w-[90%] mx-auto">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-10 px-6">
         {/* Left Content */}
-        <div className="md:w-1/2 text-left">
+        <div className="md:w-[90%] text-left">
           <h2 className="text-[36px] md:text-4xl font-[600] text-[#2F1C6A] mb-4">
             Here to help 24/7
           </h2>
@@ -39,7 +39,7 @@ const HelpService = () => {
         </div>
 
         {/* Right Image */}
-        <div className="md:w-1/2">
+        <div className="md:w-[90%] xxs:w-[100%]">
           <img
             src="/images/hepl.avif"
             alt="Help Service"

@@ -3,27 +3,27 @@ import { Check } from 'lucide-react';
 
 export default function Features() {
   return (
-    <section className="bg-[#1F1346] text-white py-16 px-6 text-center">
+    <section className="bg-[#1F1346] text-white py-16 px-6  xxs:pl-[1px] xxs:pr-[0] text-center">
        <div className="wrapper w-[90%] mx-auto">
       <div className="max-w-[79rem] h-auto mx-auto">
         {/* Heading */}
-        <h2 className="text-[36px] text-[#FFFFFF] font-bold">
+        <h2 className="xl:text-[36px] xxl:text-[36px] lg:text-[36px] md:text-[36px] xs-md:text-[28px] sm:text-[28px] smx:text-[28px] xsm:text-[26px] xs:text-[28px] text-[#FFFFFF] font-bold">
           Speed. Reliability. Efficiency.
         </h2>
-        <p className="text-[#FFFFFF] mt-3 text-[18px]">
+        <p className="text-[#FFFFFF] mt-3 xl:text-[18px] xxl:text-[18px] lg:text-[18px] md:text-[18px] xs-md:text-[16px]">
           Enjoy top-notch performance you can rely on and give your website
           visitors a smooth experience.
         </p>
 
         {/* Feature Boxes */}
-        <div className="mt-10 flex flex-col md:flex-row gap-6">
+        <div className="mt-10 flex  flex-col xl:flex-row  gap-6">
           {/* Feature 1 */}
 
           <div className=" p-6 bg-[#2F1C6A] text-left rounded-2xl flex-1 shadow-lg">
           <img
               src="/images/globee.png"
               alt="3 simple steps"
-              className="w-[15%] h-auto"
+              className="xl:w-[15%] lg:w-[7%] md:w-[7%] xs-md:w-[10%] sm:w-[10%] smx:w-[10%]  xs:w-[20%]  xs:h-auto xxs:w-[20%] xxs:h-auto smx:h-auto xsm:w-[17%] xsm:h-auto sm:h-auto xs-md:h-auto  md:h-auto xl:h-auto lg:h-auto"
             />
             <h3 className="mt-4 font-bold  text-[#FFFFFF] text-[18px]">
               Local data centers. <br /> Around the world.
@@ -40,7 +40,7 @@ export default function Features() {
           <img
               src="/images/speed.png"
               alt="3 simple steps"
-              className="w-[15%] h-auto"
+              className="xl:w-[15%] lg:w-[7%] xl:h-auto lg:h-auto xs-md:w-[10%] sm:w-[10%] sm:h-auto  xs:w-[20%] xs:h-auto xxs:w-[20%] xxs:h-auto  smx:w-[10%] smx:h-auto xsm:w-[17%] xsm:h-auto xs:w-[23%] xs:h-auto xs-md:h-auto md:w-[7%] md:h-auto"
             />
 
             <h3 className="mt-4 font-bold  text-[#FFFFFF] text-[18px]">
@@ -57,7 +57,7 @@ export default function Features() {
           <img
               src="/images/arroww.png"
               alt="3 simple steps"
-              className="w-[15%] h-auto"
+              className="xl:w-[15%] lg:w-[7%] xl:h-auto xs-md:w-[10%] sm:w-[10%] sm:h-auto smx:w-[10%]  xs:w-[20%] xs:h-auto xxs:w-[20%] xxs:h-auto  smx:h-auto xsm:w-[17%] xsm:h-auto xs:w-[23%] xs:h-auto xs-md:h-auto lg:h-auto md:w-[7%] md:h-auto"
             />
             <h3 className="mt-4 font-bold text-[#FFFFFF] text-[18px]">
               Live and kicking. <br /> 24/7.
@@ -70,9 +70,9 @@ export default function Features() {
         </div>
 
         {/* Total Security Section */}
-        <div className="mt-16 flex flex-col md:flex-row  text-left">
+        <div className="mt-16 flex flex-col md:flex-col-reverse xs-md:flex-col-reverse sm:flex-col-reverse xl:flex-row text-left">
           {/* Left Side (Image) */}
-          <div className="w-full md:w-1/2">
+          <div className="xl:w-full md:w-[100%]">
             <img
               src="/images/sslcertificate.avif"
               alt="Security Preview"
@@ -81,9 +81,9 @@ export default function Features() {
           </div>
  
           {/* Right Side (Content) */}
-          <div className="w-full md:w-1/2 p-8 pl-[108px]">
-            <h2 className="text-[36px] leading-tight w-[114%] font-bold">
-           Total Security.Complete<br></br> Confidence.
+          <div className="w-full md:w-[100%] p-8 xl:pl-[108px] md:pl-0">
+            <h2 className="xl:text-[36px] leading-tight  xl:w-[95%]  lg:w-[87%] xs:text-[18px] xxs:text-[24px] font-bold">
+           Total Security.Complete Confidence.
             </h2>
             <div className="text-[#FFFFFF] flex mt-7 text-[15px]">
             <Check className="inline-block mr-2 mt-1 text-[#009F47] " size={15} />
@@ -107,7 +107,7 @@ export default function Features() {
             </div>
              
             </div>
-            <button className="mt-6 bg-[#FC5185] hover:bg-purple-700 text-white px-20 py-3 rounded-lg font-semibold">
+            <button className="mt-6 bg-[#FC5185] hover:bg-purple-700 text-white px-20 py-3 text-[16px] xl:w-[50%] xxl:w-[50%]  lg:w-[50%] md:w-[50%] xs-md:w-[50%] sm:w-[50%] smx:w-[50%] xsm:w-[50%]  xxs:w-[109%] rounded-lg font-semibold">
               Get Started
             </button>
           </div>
