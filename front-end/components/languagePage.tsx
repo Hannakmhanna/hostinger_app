@@ -18,7 +18,7 @@ const LanguagePage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/languages/")
+      .get("http://localhost:8000/api/v1/languages/")
 
       .then((response) => {
         console.log("Fetched Data:", response.data);

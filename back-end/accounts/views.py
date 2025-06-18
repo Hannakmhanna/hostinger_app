@@ -48,7 +48,7 @@ class EmailLoginView(APIView):
         except Exception as e:
             return JsonResponse({"message": f"Internal server error: {str(e)}"}, status=500)
         
-# 🔹 Google Login API (CSRF Exempt)
+#  Google Login API (CSRF Exempt)
 @method_decorator(csrf_exempt, name="dispatch")
 class GoogleLoginView(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter

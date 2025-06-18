@@ -7,8 +7,8 @@ const Header2Page = () => {
       <Image
         src="/images/sales.png"
         alt="Sales Background"
-        fill // ✅ Correct way to make it full width/height
-        style={{ objectFit: "cover" }} // ✅ Apply objectFit correctly
+        fill // Correct way to make it full width/height
+        style={{ objectFit: "cover" }} //  Apply objectFit correctly
         className="opacity-70 absolute top-0 left-0 w-full h-full"
       />
 

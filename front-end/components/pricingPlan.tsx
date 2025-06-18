@@ -1,14 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import {
-  IndianRupee,
-  Check,
-  Minus,
-  ChevronDown,
-  X,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import {IndianRupee, Check,Minus, ChevronDown,X,ChevronLeft,ChevronRight,} from "lucide-react";
 
 const boldFeaturesMap: { [key: string]: (plan: string) => string } = {
   "1 website": () => "<b>1</b> website",
@@ -163,7 +155,7 @@ const PricingTable = () => {
           onClick={scrollLeft}
           className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md block above980:hidden"
         >
-        <ChevronLeft className="text-[#2F1C6A] w-5 h-5 sm:w-9 sm:h-9 smx:w-9 smx:h-9 xsm:w-9 xsm:h-9 xs:w-9 xs:h-9 xxs:w-9 xxs:h-9" />
+          <ChevronLeft className="text-[#2F1C6A] w-5 h-5 sm:w-9 sm:h-9 smx:w-9 smx:h-9 xsm:w-9 xsm:h-9 xs:w-9 xs:h-9 xxs:w-9 xxs:h-9" />
         </button>
 
         <div
@@ -177,11 +169,10 @@ const PricingTable = () => {
             return (
               <div
                 key={plan.name}
-                className={`relative snap-start flex flex-col justify-between min-w-[90%] sm:min-w-[300px] smx:min-w-[58%] xsm:min-w-[74%] xxs:min-w-[113%] md:w-1/3 xl:w-[23.333333%] xxl:w-[30.333333%] lg:w-[31.7%] py-6 pb-[8.5rem] px-8 bg-[#FAFBFF] shadow-lg rounded-2xl text-left border mt-16 ${
-                  isPremiumPlan
+                className={`relative snap-start flex flex-col justify-between min-w-[90%] sm:min-w-[300px] smx:min-w-[58%] xsm:min-w-[74%] xxs:min-w-[113%] md:w-1/3 xl:w-[23.333333%] xxl:w-[30.333333%] lg:w-[31.7%] py-6 pb-[8.5rem] px-8 bg-[#FAFBFF] shadow-lg rounded-2xl text-left border mt-16 ${isPremiumPlan
                     ? "border-[3px] border-[#8C85FF] mt-[15px] pt-[48px]"
                     : "border border-[#D5DFFF]"
-                }`}
+                  }`}
               >
                 {isPremiumPlan && (
                   <div className="absolute top-0 left-0 w-full flex items-center justify-center h-[2.9rem] bg-[#8C85FF] text-[#FFFFFF] text-[16px] font-semibold rounded-t-[10px]">
@@ -206,7 +197,7 @@ const PricingTable = () => {
                     {Math.round(
                       ((plan.renewal_price - plan.discounted_price) /
                         plan.renewal_price) *
-                        100
+                      100
                     )}
                     %
                   </span>
@@ -229,11 +220,10 @@ const PricingTable = () => {
                 )}
 
                 <button
-                  className={`mt-8 w-full mb-8 font-semibold p-3 px-5 border-2 rounded-lg  ${
-                    isPremiumPlan
+                  className={`mt-8 w-full mb-8 font-semibold p-3 px-5 border-2 rounded-lg  ${isPremiumPlan
                       ? "bg-[#673DE6] text-white hover:bg-[#673DE6]"
                       : "bg-[#FAFBFF] text-[#673DE6] border-[#673DE6] hover:bg-[#673DE6] hover:text-white"
-                  }`}
+                    }`}
                 >
                   Choose Plan
                 </button>
@@ -277,15 +267,12 @@ const PricingTable = () => {
                           <Check className="mr-2 text-[#009F47]" size={14} />
                         )}
                         <span
-                          className={`text-[14px] ${
-                            isGrey ? "text-[#6D7081]" : "text-[#2F1C6A]"
-                          } ${
-                            isUnderlined
+                          className={`text-[14px] ${isGrey ? "text-[#6D7081]" : "text-[#2F1C6A]"
+                            } ${isUnderlined
                               ? "underline decoration-dashed decoration-[#2F1C6A] underline-offset-[3px]"
                               : ""
-                          } ${
-                            isWidthLimited ? "w-[75%] inline-block" : "w-full"
-                          }`}
+                            } ${isWidthLimited ? "w-[75%] inline-block" : "w-full"
+                            }`}
                           dangerouslySetInnerHTML={{ __html: formattedFeature }}
                         ></span>
                       </div>
@@ -344,6 +331,7 @@ const PricingTable = () => {
         onClick={() => setShowModal(true)}
         className="text-[#673DE6] text-[16px] font-[700]"
       >
+        {" "}
         Payment Terms
       </button>
       {showModal && (
@@ -358,14 +346,12 @@ const PricingTable = () => {
                 <X />
               </button>
             </div>
-
             {/* Modal Header */}
             <div className="">
               <h2 className="text-[#2F1C6A] text-[24px]  text-center font-[600]">
                 Payment terms
               </h2>
             </div>
-
             {/* Modal Content */}
             <p className="text-[#2F1C6A] text-[16px] mt-6">
               The price displayed is the monthly rate excluding applicable
@@ -379,5 +365,4 @@ const PricingTable = () => {
     </div>
   );
 };
-
 export default PricingTable;

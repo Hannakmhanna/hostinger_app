@@ -30,7 +30,7 @@ class PricingPlan(models.Model):
         return self.name
 
 
-class ExtraFeature(models.Model):  # ✅ Corrected indentation
+class ExtraFeature(models.Model):  # Corrected indentation
     title = models.CharField(max_length=255)  # Add title field
     description = models.TextField(blank=True, null=True)  # Add description field
     pricing_plan = models.ForeignKey(PricingPlan, on_delete=models.CASCADE, related_name='extra_features')

@@ -10,7 +10,7 @@ class ExtraFeatureSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ExtraFeature
-        fields = ['title', 'description']  # ✅ Keep the correct fields
+        fields = ['title', 'description']  # Keep the correct fields
 
 class PricingPlanSerializer(serializers.ModelSerializer):
     extra_features = ExtraFeatureSerializer(many=True, read_only=True)

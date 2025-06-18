@@ -7,5 +7,4 @@ urlpatterns = [
     path('', get_languages, name='get_languages'),
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

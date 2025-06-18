@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PricingPlan, ExtraFeature  # ✅ Import your models
+from .models import PricingPlan, ExtraFeature  #  Import your models
 
 # Register PricingPlan model
 @admin.register(PricingPlan)

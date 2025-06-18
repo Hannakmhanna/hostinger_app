@@ -1,11 +1,10 @@
 "use client";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useGoogleLogin } from "@react-oauth/google";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -13,35 +12,41 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
-  const [user, setUser] = useState(null);
   const [token, setToken] = useState<string | null>(null);
+  const [user, setUser] = useState(null);
+  const router = useRouter();
 
-  // ✅ Handle Login Function
-  
+  //  Redirect to dashboard if already logged in
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    const storedUser = localStorage.getItem("user");
+
+    if (storedToken && storedUser) {
+      router.replace("/dasboard");
+    }
+  }, []);
+
+  //  Handle Login Form Submit
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
     setLoading(true);
-  
+
     if (!email || !password) {
       setError("Please enter both email and password.");
       setLoading(false);
       return;
     }
-  
+
     try {
-      // Simulate API success (remove this when using a real API)
+      // Simulate successful login (replace with real API)
       const fakeUser = { email, name: "Welcome" };
       const fakeToken = "dummy-token-123";
-  
-      // Store Token & User Info
+
       localStorage.setItem("token", fakeToken);
       localStorage.setItem("user", JSON.stringify(fakeUser));
-  
+
       console.log("Login successful:", fakeUser);
-  
-      // Redirect to Dashboard
       router.push("/dasboard");
     } catch (error: any) {
       console.error("Login error:", error.message);
@@ -50,44 +55,30 @@ export default function Login() {
       setLoading(false);
     }
   };
-  
-  
 
-  // ✅ Handle Social Login Function
+  //  Handle Google Login
   const handleGoogleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       console.log("Google Token:", tokenResponse);
       localStorage.setItem("googleAccessToken", tokenResponse.access_token);
       setToken(tokenResponse.access_token);
-  
-      // Fetch user info
+
       try {
         const res = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
           headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
         });
         const userInfo = await res.json();
-  
-        // Store user data in localStorage
         localStorage.setItem("user", JSON.stringify(userInfo));
+        localStorage.setItem("token", tokenResponse.access_token);
+        router.push("/dasboard");
       } catch (err) {
         console.error("Failed to fetch user info:", err);
       }
-  
-      router.push("/dasboard");
     },
     onError: (error) => console.error("Google Login Failed:", error),
   });
-  
-  
-  // Redirect when token is set
-  useEffect(() => {
-    if (token) {
-      console.log("Redirecting...");
-      router.push("/dasboard");
-    }
-  }, [token]);
-  
-  // ✅ Fetch User Info from Google API (Client-side only)
+
+  //  Fetch User Info from Google if token exists
   useEffect(() => {
     const fetchUserInfo = async () => {
       const storedToken = localStorage.getItem("googleAccessToken");
@@ -106,7 +97,6 @@ export default function Login() {
 
     fetchUserInfo();
   }, [token]);
-
 
   return (
     <div className="min-h-screen bg-white">
@@ -132,21 +122,17 @@ export default function Login() {
 
           <div className="flex justify-center gap-4 mb-4">
             <button
-             onClick={() => handleGoogleLogin()}
-              className="flex items-center w-[21%] gap-2 px-[16px] py-[13px] border rounded-lg text-gray-700 border-gray-300 hover:bg-gray-100 w-full justify-center"
+              onClick={() => handleGoogleLogin()}
+              className="flex items-center w-[21%] gap-2 px-[16px] py-[13px] border rounded-lg text-gray-700 border-gray-300 hover:bg-gray-100 justify-center"
             >
               <img src="/images/google.svg" alt="Google" className="w-6 h-6" />
             </button>
 
             <button
-           onClick={() => handleGoogleLogin()}
-              className="flex items-center w-[21%] gap-2 px-[16px] py-[13px] bg-[#1877F2] border rounded-lg text-gray-700 border-gray-300 hover:bg-gray-100 w-full justify-center"
+              onClick={() => handleGoogleLogin()}
+              className="flex items-center w-[21%] gap-2 px-[16px] py-[13px] bg-[#1877F2] border rounded-lg text-gray-700 border-gray-300 hover:bg-gray-100 justify-center"
             >
-              <img
-                src="/images/facebook.svg"
-                alt="Facebook"
-                className="w-6 h-6"
-              />
+              <img src="/images/facebook.svg" alt="Facebook" className="w-6 h-6" />
             </button>
           </div>
 
@@ -190,7 +176,7 @@ export default function Login() {
               type="submit"
               className="w-full bg-[#673DE6] text-white py-3 rounded-md hover:bg-purple-700 font-semibold"
             >
-              Log in
+              {loading ? "Logging in..." : "Log in"}
             </button>
           </form>
 

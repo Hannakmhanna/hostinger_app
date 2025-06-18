@@ -37,7 +37,7 @@ const CardSection = () => {
 
         {/* Buttons */}
         <>
-      {/* 👇 Regular layout for above 580px */}
+      {/* Regular layout for above 580px */}
       <div className="hidden smx:hidden sm:flex flex-wrap justify-center gap-4 mt-12">
         {categories.map((text, index) => (
           <button
@@ -52,7 +52,7 @@ const CardSection = () => {
         ))}
       </div>
 
-      {/* 👇 Scrollable + arrows for 580px and below */}
+      {/* Scrollable + arrows for 580px and below */}
       <div className="relative w-full smx:flex smx:items-center smx:justify-center sm:hidden mt-12">
         {/* Left arrow */}
         <button

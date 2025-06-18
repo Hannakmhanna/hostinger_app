@@ -1,14 +1,21 @@
+"use client";
+
+import React from "react";
 import Dashboard from "@/components/Dasboard";
+import HeaderDashboard from "@/components/Headerdasbord";
+import AsideDasbhoard from  "@/components/aside";
 
 
-const dashboard = () => {
+const DashboardPage = () => {
   return (
     <div>
-      <div className="">
-        <Dashboard/>
-      </div>
+      
+      <HeaderDashboard/>
+      <Dashboard />
+    
+      
     </div>
   );
 };
 
-export default dashboard;
+export default DashboardPage;

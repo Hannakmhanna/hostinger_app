@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',  # ✅ Required for allauth
+    'django.contrib.sites',  # Required for allauth
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework.authtoken',
     
-    # ✅ Add allauth apps
+    # Add allauth apps
     "dj_rest_auth",
     'allauth',
     'allauth.account',
@@ -37,12 +37,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
 
-    # ✅ Your custom apps
+    # custom apps
     'languages',
     'pricing',
     'accounts',
     'domain_search',
     'spotlight',
+     'cart',
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -90,7 +91,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # ✅ REQUIRED for allauth
+                'django.template.context_processors.request',  #  REQUIRED for allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -105,7 +106,7 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
 
-# ✅ Secure Google & Facebook OAuth Settings (Fixed the "app" issue)
+# Secure Google & Facebook OAuth Settings (Fixed the "app" issue)
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
         "client_id": os.getenv("2248129170-5nmdf4129dh82ak37iqpk7v0a1jnik74.apps.googleusercontent.com"),
@@ -116,13 +117,13 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-ACCOUNT_AUTHENTICATION_METHOD = "email"  # ✅ Accepts "email", "username", or "email_or_username"
+ACCOUNT_AUTHENTICATION_METHOD = "email"  # Accepts "email", "username", or "email_or_username"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_UNIQUE_EMAIL = True
-SITE_ID = 1  # ✅ Ensure this exists in the `django_site` table
+SITE_ID = 1  # Ensure this exists in the `django_site` table
 NEXTJS_URL = "http://localhost:3000"
 
 DATABASES = {
@@ -165,10 +166,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ✅ CSRF Exemption & OAuth Fixes
+#  CSRF Exemption & OAuth Fixes
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",  # ✅ Allow frontend domain
+    "http://localhost:3000",  #  Allow frontend domain
 ]
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"  # ✅ Ensure correct redirects
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"  #  Ensure correct redirects
 
-REST_USE_JWT = True  # ✅ Ensure JWT is used for authentication
+REST_USE_JWT = True  #  Ensure JWT is used for authentication
