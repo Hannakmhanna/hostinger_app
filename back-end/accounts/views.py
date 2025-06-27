@@ -1,15 +1,11 @@
-import json
-from django.contrib.auth import authenticate, login
-from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib.auth import get_user_model
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 from dj_rest_auth.registration.views import SocialLoginView
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from django.contrib.auth import get_user_model
 
 CustomUser = get_user_model()
 
@@ -17,38 +13,32 @@ def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
     return {"refresh": str(refresh), "access": str(refresh.access_token)}
 
-@method_decorator(csrf_exempt, name="dispatch")
 class EmailLoginView(APIView):
+    permission_classes = []  # Allow unauthenticated access
     def post(self, request, *args, **kwargs):
-        try:
-            data = json.loads(request.body)
-            email = data.get("email")
-            password = data.get("password")
+        email = request.data.get("email")
+        password = request.data.get("password")
 
-            if not email or not password:
-                return JsonResponse({"message": "Email and password required"}, status=400)
+        if not email or not password:
+            return Response({"message": "Email and password required"}, status=status.HTTP_400_BAD_REQUEST)
 
-            user = authenticate(request, email=email, password=password)
+        user = authenticate(request, email=email, password=password)
 
-            if user is None:
-                return JsonResponse({"message": "Invalid credentials"}, status=401)
+        if user is None:
+            return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
-            if not user.is_active:
-                return JsonResponse({"message": "User account is inactive"}, status=403)
+        if not user.is_active:
+            return Response({"message": "User account is inactive"}, status=status.HTTP_403_FORBIDDEN)
 
-            tokens = get_tokens_for_user(user)
+        tokens = get_tokens_for_user(user)
 
-            return JsonResponse({
-                "user": {"id": user.id, "email": user.email, "username": user.username},
-                "token": tokens["access"],
-                "refresh_token": tokens["refresh"]
-            })
-        except json.JSONDecodeError:
-            return JsonResponse({"message": "Invalid JSON format"}, status=400)
-        except Exception as e:
-            return JsonResponse({"message": f"Internal server error: {str(e)}"}, status=500)
-        
+        return Response({
+            "user": {"id": user.id, "email": user.email, "username": user.username},
+            "token": tokens["access"],
+            "refresh_token": tokens["refresh"]
+        }, status=status.HTTP_200_OK)
+
 #  Google Login API (CSRF Exempt)
-@method_decorator(csrf_exempt, name="dispatch")
 class GoogleLoginView(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
+    permission_classes = []  # Optional: allow unauthenticated

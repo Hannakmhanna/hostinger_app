@@ -17,7 +17,7 @@ def spotlight_data(request):
 
         # If the countdown is already over, set a new default deadline (e.g., 24 hours later)
         if remaining_time <= 0:
-            print("🚨 Deadline passed! Resetting countdown to 24 hours.")
+            print("Deadline passed! Resetting countdown to 24 hours.")
             remaining_time = 86400  # 1 day in seconds
 
         countdown = {
@@ -36,7 +36,7 @@ def spotlight_data(request):
             "countdown": countdown,
         }
 
-        print("📡 API Response Sent:", response_data)  # Debugging
+        print(" API Response Sent:", response_data)  # Debugging
         return JsonResponse(response_data)
 
     except Exception as e:

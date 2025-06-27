@@ -45,7 +45,7 @@ class CheckoutView(APIView):
             "total": total.quantize(Decimal("0.01")),  #  Round to 2 decimal places safely
         }
 
-        print("📝 Order data to save:", order_data)
+        print("Order data to save:", order_data)
 
         order_serializer = OrderSerializer(data=order_data)
         if order_serializer.is_valid():
@@ -63,7 +63,7 @@ class CheckoutView(APIView):
 
             return Response({'message': 'Order and cart item placed successfully'}, status=201)
 
-        print("❌ Order validation errors:", order_serializer.errors)
+        print(" Order validation errors:", order_serializer.errors)
         return Response(order_serializer.errors, status=400)
 
 

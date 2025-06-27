@@ -44,7 +44,7 @@ export default function DomainModal({
 
   const handleCheckout = async () => {
     if (!selectedPlan) {
-      alert("⚠️ Please select a plan before continuing.");
+      alert(" Please select a plan before continuing.");
       return;
     }
 
@@ -69,14 +69,14 @@ export default function DomainModal({
       });
 
       if (response.ok) {
-        alert("✅ Domain added to cart!");
+        alert(" Domain added to cart!");
         onClose();
       } else {
-        alert("❌ Failed to add domain. Please try again.");
+        alert("Failed to add domain. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("🚨 An error occurred. Try again later.");
+      alert(" An error occurred. Try again later.");
     }
   };
 
